@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Student AI Assistant</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body>
+
+<div class="app">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- BRAND -->
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                🎓
+            </div>
+
+            <div class="brand-text">
+
+                <h2>Student AI</h2>
+
+                <span>Study smarter</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- NEW CHAT -->
+
+        <button
+            class="new-chat"
+            onclick="newChat()">
+
+            <span>＋</span>
+
+            <strong>New Chat</strong>
+
+        </button>
+
+
+        <!-- =================================================
+             STUDY TOOLS
+        ================================================== -->
+
+        <div class="sidebar-section">
+
+            <p class="section-title">
+                STUDY TOOLS
+            </p>
+
+
+            <!-- STUDY HELP -->
+
+            <button
+                class="study-tool"
+                onclick="openToolPopup('study')">
+
+                <div class="menu-icon">
+                    📚
+                </div>
+
+                <div class="tool-content">
+
+                    <strong>
+                        Study Help
+                    </strong>
+
+                    <small>
+                        Learn any topic
+                    </small>
+
+                </div>
+
+                <span class="menu-arrow">
+                    →
+                </span>
+
+            </button>
+
+
+            <!-- PROGRAMMING -->
+
+            <button
+                class="study-tool"
+                onclick="openToolPopup('programming')">
+
+                <div class="menu-icon">
+                    💻
+                </div>
+
+                <div class="tool-content">
+
+                    <strong>
+                        Programming
+                    </strong>
+
+                    <small>
+                        Code & debugging
+                    </small>
+
+                </div>
+
+                <span class="menu-arrow">
+                    →
+                </span>
+
+            </button>
+
+
+            <!-- EXAM -->
+
+            <button
+                class="study-tool"
+                onclick="openToolPopup('exam')">
+
+                <div class="menu-icon">
+                    📝
+                </div>
+
+                <div class="tool-content">
+
+                    <strong>
+                        Exam Preparation
+                    </strong>
+
+                    <small>
+                        Prepare effectively
+                    </small>
+
+                </div>
+
+                <span class="menu-arrow">
+                    →
+                </span>
+
+            </button>
+
+
+            <!-- AI ML -->
+
+            <button
+                class="study-tool"
+                onclick="openToolPopup('aiml')">
+
+                <div class="menu-icon">
+                    🧠
+                </div>
+
+                <div class="tool-content">
+
+                    <strong>
+                        AI & ML
+                    </strong>
+
+                    <small>
+                        Learn AI concepts
+                    </small>
+
+                </div>
+
+                <span class="menu-arrow">
+                    →
+                </span>
+
+            </button>
+
+        </div>
+
+
+        <!-- =================================================
+             RECENT CHATS
+        ================================================== -->
+
+        <div class="recent-section">
+
+            <div class="recent-header">
+
+                <p class="section-title">
+                    RECENT CHATS
+                </p>
+
+                <button
+                    class="delete-all-btn"
+                    onclick="clearChatHistory()"
+                    title="Delete all chats">
+
+                    🗑
+
+                </button>
+
+            </div>
+
+
+            <div
+                id="chat-history"
+                class="chat-history">
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             SIDEBAR BOTTOM
+        ================================================== -->
+
+        <div class="sidebar-bottom">
+
+            <div class="profile-card">
+
+                <div class="profile-avatar">
+                    S
+                </div>
+
+                <div class="profile-info">
+
+                    <strong>
+                        Student
+                    </strong>
+
+                    <small>
+                        Academic Assistant
+                    </small>
+
+                </div>
+
+                <button
+                    class="settings-icon"
+                    title="Settings">
+
+                    ⚙
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="main">
+
+
+        <!-- =================================================
+             TOP BAR
+        ================================================== -->
+
+        <header class="topbar">
+
+
+            <div class="assistant-info">
+
+                <div class="ai-avatar">
+
+                    🤖
+
+                    <span class="online-dot"></span>
+
+                </div>
+
+
+                <div class="assistant-text">
+
+                    <h3>
+                        Student AI
+                    </h3>
+
+                    <p>
+                        Powered by Gemini
+                        <span>•</span>
+                        <span class="online-text">
+                            Online
+                        </span>
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACTIONS -->
+
+            <div class="topbar-actions">
+
+                <button
+                    class="theme-button"
+                    id="theme-btn"
+                    onclick="toggleTheme()"
+                    title="Toggle dark mode">
+
+                    🌙
+
+                </button>
+
+
+                <button
+                    class="clear-button"
+                    onclick="newChat()">
+
+                    🗑
+                    Clear
+
+                </button>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             CHAT AREA
+        ================================================== -->
+
+        <div
+            id="chat-box"
+            class="chat-box">
+
+
+            <!-- =================================================
+                 WELCOME
+            ================================================== -->
+
+            <div
+                id="welcome"
+                class="welcome">
+
+
+                <div class="welcome-icon">
+                    🎓
+                </div>
+
+
+                <h1>
+                    How can I help you today?
+                </h1>
+
+
+                <p class="welcome-description">
+
+                    Your personal academic assistant.
+                    Learn concepts, solve coding problems,
+                    prepare for exams, and build projects.
+
+                </p>
+
+
+                <div class="suggestion-heading">
+
+                    <span>💡</span>
+
+                    <strong>
+                        Try asking
+                    </strong>
+
+                </div>
+
+
+                <!-- =================================================
+                     SUGGESTIONS
+                ================================================== -->
+
+                <div class="suggestions">
+
+
+                    <button
+                        class="suggestion-card"
+                        onclick="openSuggestionPopup('python')">
+
+                        <div class="suggestion-icon">
+                            🐍
+                        </div>
+
+                        <div class="suggestion-content">
+
+                            <strong>
+                                Learn Python
+                            </strong>
+
+                            <small>
+                                Learn Python with examples
+                            </small>
+
+                        </div>
+
+                        <span class="suggestion-arrow">
+                            →
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="suggestion-card"
+                        onclick="openSuggestionPopup('ml')">
+
+                        <div class="suggestion-icon">
+                            🤖
+                        </div>
+
+                        <div class="suggestion-content">
+
+                            <strong>
+                                Machine Learning
+                            </strong>
+
+                            <small>
+                                Understand ML concepts
+                            </small>
+
+                        </div>
+
+                        <span class="suggestion-arrow">
+                            →
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="suggestion-card"
+                        onclick="openSuggestionPopup('exam')">
+
+                        <div class="suggestion-icon">
+                            📖
+                        </div>
+
+                        <div class="suggestion-content">
+
+                            <strong>
+                                Exam Preparation
+                            </strong>
+
+                            <small>
+                                Create a smart study plan
+                            </small>
+
+                        </div>
+
+                        <span class="suggestion-arrow">
+                            →
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="suggestion-card"
+                        onclick="openSuggestionPopup('project')">
+
+                        <div class="suggestion-icon">
+                            🚀
+                        </div>
+
+                        <div class="suggestion-content">
+
+                            <strong>
+                                Project Ideas
+                            </strong>
+
+                            <small>
+                                Find useful project ideas
+                            </small>
+
+                        </div>
+
+                        <span class="suggestion-arrow">
+                            →
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             INPUT
+        ================================================== -->
+
+        <div class="input-section">
+
+
+            <div class="input-box">
+
+                <textarea
+                    id="question"
+                    rows="1"
+                    placeholder="Ask Student AI anything..."
+                    autocomplete="off"
+                    aria-label="Ask Student AI"></textarea>
+
+
+                <div class="input-bottom">
+
+                    <div class="input-hint">
+
+                        <span>
+                            ↵ Enter to send
+                        </span>
+
+                        <span>
+                            Shift + Enter for new line
+                        </span>
+
+                    </div>
+
+
+                    <button
+                        id="send-btn"
+                        onclick="sendQuestion()"
+                        title="Send message">
+
+                        ➤
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <p class="disclaimer">
+
+                Student AI can make mistakes.
+                Check important information.
+
+            </p>
+
+        </div>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- =====================================================
+     POPUP
+====================================================== -->
+
+<div
+    id="tool-modal"
+    class="modal-overlay"
+    onclick="closeModalOutside(event)">
+
+
+    <div class="modal">
+
+
+        <button
+            class="modal-close"
+            onclick="closeToolPopup()">
+
+            ✕
+
+        </button>
+
+
+        <div
+            id="modal-icon"
+            class="modal-icon">
+
+            📚
+
+        </div>
+
+
+        <h2 id="modal-title">
+            Study Help
+        </h2>
+
+
+        <p id="modal-description">
+            Choose what you want to learn.
+        </p>
+
+
+        <div
+            id="modal-options"
+            class="modal-options">
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     MARKDOWN
+====================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js"></script>
+
+
+<!-- YOUR JS -->
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+
+</body>
+
+</html>
