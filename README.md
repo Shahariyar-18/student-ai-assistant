@@ -65,86 +65,83 @@ Student-AI-Assistant/
     │
     └── js/
         └── script.js
-Yes — your screenshot shows that the Project Structure section is already at the bottom of your README. You simply continue writing below the closing ```.
+```
 
-For example:
+## 🌐 Live Demo
 
-## 📂 Project Structure
+Try the Student AI Assistant online:
 
-```text
-Student-AI-Assistant/
-│
-├── app.py
-├── requirements.txt
-├── .gitignore
-├── README.md
-│
-├── templates/
-│   └── index.html
-│
-└── static/
-    ├── css/
-    │   └── style.css
-    │
-    └── js/
-        └── script.js
-⚙️ Installation
-1. Clone the Repository
-git clone https://github.com/Shahariyar-18/student-ai-assistant.git
-2. Open the Project
-cd student-ai-assistant
-3. Create Virtual Environment
-python -m venv venv
-4. Activate Virtual Environment
+👉 https://student-ai-assistant-p6h4.onrender.com/
 
-For Windows:
+## 🚀 How It Works
 
-venv\Scripts\activate
-5. Install Dependencies
-pip install -r requirements.txt
-▶️ Run the Application
-python app.py
+1. Open the Student AI Assistant.
+2. Enter an academic question in the chat box.
+3. The question is sent to the Flask backend.
+4. Flask processes the request and sends it to Google Gemini.
+5. Gemini generates an AI-powered response.
+6. The response is displayed in the chat interface.
+7. Previous conversation messages are used to maintain context.
 
-Then open:
+## 💡 Example Questions
 
-http://127.0.0.1:5000
-🚀 Live Demo
+You can ask questions such as:
 
-Try the application here:
+- What is Object-Oriented Programming?
+- Explain DBMS normalization with an example.
+- What is the difference between TCP and UDP?
+- Explain recursion in Python.
+- Write a Java program to check whether a number is prime.
+- Explain the working of a neural network.
+- What is the difference between AI and Machine Learning?
+- Give me some final-year AI/ML project ideas.
+- Explain the OSI model.
+- Help me prepare for my DBMS exam.
 
-https://student-ai-assistant-p6h4.onrender.com/
+## 📚 Main Study Areas
 
-💡 How It Works
-Enter your question in the chat box.
-The question is sent to the Flask backend.
-Flask communicates with Google Gemini.
-Gemini generates an AI-powered response.
-The response is displayed in the chat interface.
-Users can continue the conversation with follow-up questions.
-📚 Areas Covered
-Python
-Java
-C and C++
-JavaScript
-Data Structures and Algorithms
-DBMS
-Operating Systems
-Computer Networks
-Software Engineering
-Artificial Intelligence
-Machine Learning
-Deep Learning
-College Projects
-Exam Preparation
-👨‍💻 Author
+The Student AI Assistant can help with:
 
-Shahariyar Khan
+- Python
+- Java
+- C
+- C++
+- JavaScript
+- Data Structures & Algorithms
+- Database Management Systems
+- Operating Systems
+- Computer Networks
+- Software Engineering
+- Artificial Intelligence
+- Machine Learning
+- Deep Learning
+- Mathematics
+- Academic Projects
+- Exam Preparation
 
-CSE (Artificial Intelligence) Student
+## 🚀 Deployment
 
-🌐 Project Links
+The application is deployed using Render.
 
-Live Demo:
-https://student-ai-assistant-p6h4.onrender.com/
+### Deployment Stack
 
-⭐ If you found this project useful, consider giving it a star.
+- GitHub — Source code repository
+- Render — Web application hosting
+- Flask — Backend framework
+- Google Gemini — AI model
+
+
+## 👨‍💻 Author
+
+**Mahammad Shahariyar Khan**
+
+CSE (AI & ML) Student
+
+GitHub:  
+https://github.com/Shahariyar-18
+
+## ⭐ Support
+
+If you found this project useful or interesting, consider giving the repository a ⭐ star on GitHub.
+
+Your support is appreciated!
